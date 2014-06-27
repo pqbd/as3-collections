@@ -5,12 +5,12 @@ package alx.common.util
    * @author Alexander Volkov
    * @version 1.0
    */
-  public interface IListIterator//.< T>
-  extends IIterator//.< T>
+  public interface IListIterator
+  extends IIterator
   {
     //+public function hasNext():Boolean;
-    //+public function next():Object//T;
-    //+public function remove():void
+    //+public function next():Object;
+    //+public function remove():void;
 
     /**
      * Checks if there is a preious element.
@@ -21,7 +21,7 @@ package alx.common.util
      * Gets previous element.
      * @return Object
      */
-    public function previous():Object;//T;
+    public function previous():Object;
     /** Gets next index.
      * @return int
      */

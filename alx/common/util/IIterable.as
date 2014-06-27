@@ -5,12 +5,12 @@ package alx.common.util
    * @author Alexander Volkov
    * @version 1.0
    */
-  public interface IIterable//.< T>
+  public interface IIterable
   {
     /**
      * Gets an iterator over a set of elements.
      * @return {@link IIterator}
      */
-    public function iterator():IIterator//IIterator.< T>;
+    public function iterator():IIterator
   }
 }

@@ -5,9 +5,11 @@ package alx.common.util
    * @author Alexander Volkov
    * @version 1.0
    */
-  public interface ICollection//.< T>
-  extends IIterable//.< T>
+  public interface ICollection
+  extends IIterable
   {
+    //+public function iterator():IIterator
+
     /** Adds an element into the collection.
      * @param element Object
      * @return Boolean
@@ -36,8 +38,7 @@ package alx.common.util
     /** Checks if the collection is empty.
      * @return Boolean
      */
-    public function isEmpty():Boolean;
-    //+public function iterator():IIterator//IIterator.< T>;
+    public function isEmpty():Boolean;    
     /** Removes the element from the collection.
      * @param element Object
      * @return Boolean

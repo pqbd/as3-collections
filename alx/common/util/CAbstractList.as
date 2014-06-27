@@ -5,145 +5,197 @@ package alx.common.util
    * @author Alexander Volkov
    * @version 1.0
    */
-  public class CAbstractList//.< T>
-  extends CAbstractCollection//.< T>
-  implements IList//.< T>
+  public class CAbstractList
+  extends CAbstractCollection
+  implements IList
   {
     protected function CAbstractList():void
     {
     }
- Public Methodadd(Object) : boolean
- Public Methodadd(int, Object) : void
- Public MethodAbstractInheritedaddAll(Collection) : boolean
- Public MethodInheritedaddAll(Collection) : boolean
- Public MethodaddAll(int, Collection) : boolean
- Public Methodclear() : void
- Public MethodAbstractInheritedcontains(Object) : boolean
- Public MethodInheritedcontains(Object) : boolean
- Public MethodInheritedcontainsAll(Collection) : boolean
- Public MethodAbstractInheritedcontainsAll(Collection) : boolean
- Public Methodequals(Object) : boolean
- Public MethodAbstractget(int) : E
- Public MethodhashCode() : int
- Public MethodindexOf(Object) : int
- Public MethodAbstractInheritedisEmpty() : boolean
- Public MethodInheritedisEmpty() : boolean
- Public Methoditerator() : Iterator<E>
- Public MethodlastIndexOf(Object) : int
- Public MethodlistIterator() : ListIterator<E>
- Public MethodlistIterator(int) : ListIterator<E>
- Private MethodoutOfBoundsMsg(int) : String
- Private MethodrangeCheckForAdd(int) : void
- Public MethodAbstractInheritedremove(Object) : boolean
- Public Methodremove(int) : E
- Public MethodInheritedremove(Object) : boolean
- Public MethodAbstractInheritedremoveAll(Collection) : boolean
- Public MethodInheritedremoveAll(Collection) : boolean
- Protected MethodremoveRange(int, int) : void
- Public MethodAbstractInheritedretainAll(Collection) : boolean
- Public MethodInheritedretainAll(Collection) : boolean
- Public Methodset(int, Object) : E
- Public MethodAbstractInheritedsize() : int
- Public MethodAbstractInheritedsize() : int
- Public MethodsubList(int, int) : List<E>
- Public MethodAbstractInheritedtoArray() : Object[]
- Public MethodInheritedtoArray() : Object[]
- Public MethodAbstractInheritedtoArray(Object[]) : T[]
- Public MethodInheritedtoArray(Object[]) : T[]
- Public MethodInheritedtoString() : String
- Protected FieldTransientmodCount : int
- ClassRandomAccessSubList<E>
-Package MethodConstructorRandomAccessSubList(AbstractList, int, int) : void
- Public MethodInheritedadd(Object) : boolean
- Public MethodInheritedadd(int, Object) : void
- Public MethodInheritedaddAll(Collection) : boolean
- Public MethodInheritedaddAll(int, Collection) : boolean
- Public MethodInheritedclear() : void
- Public MethodInheritedcontains(Object) : boolean
- Public MethodInheritedcontainsAll(Collection) : boolean
- Public MethodInheritedequals(Object) : boolean
- Public MethodInheritedget(int) : E
- Public MethodInheritedhashCode() : int
- Public MethodInheritedindexOf(Object) : int
- Public MethodInheritedisEmpty() : boolean
- Public MethodInheritediterator() : Iterator<E>
- Public MethodInheritedlastIndexOf(Object) : int
- Public MethodInheritedlistIterator() : ListIterator<E>
- Public MethodInheritedlistIterator(int) : ListIterator<E>
- Public MethodInheritedremove(int) : E
- Public MethodInheritedremove(Object) : boolean
- Public MethodInheritedremoveAll(Collection) : boolean
- Protected MethodInheritedremoveRange(int, int) : void
- Public MethodInheritedretainAll(Collection) : boolean
- Public MethodInheritedset(int, Object) : E
- Public MethodInheritedsize() : int
- Public MethodsubList(int, int) : List<E>
- Public MethodInheritedtoArray() : Object[]
- Public MethodInheritedtoArray(Object[]) : T[]
- Public MethodInheritedtoString() : String
- Protected FieldTransientInheritedmodCount : int
- ClassSubList<E>
-Package MethodConstructorSubList(AbstractList, int, int) : void
- Public MethodInheritedadd(Object) : boolean
- Public Methodadd(int, Object) : void
- Public MethodaddAll(Collection) : boolean
- Public MethodaddAll(int, Collection) : boolean
- Private MethodcheckForComodification() : void
- Public MethodInheritedclear() : void
- Public MethodInheritedcontains(Object) : boolean
- Public MethodInheritedcontainsAll(Collection) : boolean
- Public MethodInheritedequals(Object) : boolean
- Public Methodget(int) : E
- Public MethodInheritedhashCode() : int
- Public MethodInheritedindexOf(Object) : int
- Public MethodInheritedisEmpty() : boolean
- Public Methoditerator() : Iterator<E>
- Public MethodInheritedlastIndexOf(Object) : int
- Public MethodInheritedlistIterator() : ListIterator<E>
- Public MethodlistIterator(int) : ListIterator<E>
- Private MethodoutOfBoundsMsg(int) : String
- Private MethodrangeCheck(int) : void
- Private MethodrangeCheckForAdd(int) : void
- Public Methodremove(int) : E
- Public MethodInheritedremove(Object) : boolean
- Public MethodInheritedremoveAll(Collection) : boolean
- Protected MethodremoveRange(int, int) : void
- Public MethodInheritedretainAll(Collection) : boolean
- Public Methodset(int, Object) : E
- Public Methodsize() : int
- Public MethodsubList(int, int) : List<E>
- Public MethodInheritedtoArray() : Object[]
- Public MethodInheritedtoArray(Object[]) : T[]
- Public MethodInheritedtoString() : String
- Private FieldFinall : AbstractList<E>
- Protected FieldTransientInheritedmodCount : int
- Private FieldFinaloffset : int
- Private Fieldsize : int
- ClassItr in AbstractList<E>
-Package MethodFinalcheckForComodification() : void
- Public MethodhasNext() : boolean
- Public Methodnext() : E
- Public Methodremove() : void
- Package Fieldcursor : int
- Package FieldexpectedModCount : int
- Package FieldlastRet : int
- ClassListItr in AbstractList<E>
-Package MethodConstructorListItr(int) : void
- Public Methodadd(Object) : void
- Package MethodFinalInheritedcheckForComodification() : void
- Public MethodAbstractInheritedhasNext() : boolean
- Public MethodInheritedhasNext() : boolean
- Public MethodhasPrevious() : boolean
- Public MethodInheritednext() : E
- Public MethodAbstractInheritednext() : E
- Public MethodnextIndex() : int
- Public Methodprevious() : E
- Public MethodpreviousIndex() : int
- Public MethodAbstractInheritedremove() : void
- Public MethodInheritedremove() : void
- Public Methodset(Object) : void
- Package FieldInheritedcursor : int
- Package FieldInheritedexpectedModCount : int
- Package FieldInheritedlastRet : int
+
+    protected function rangeCheck( nIndex:int):void
+    {
+      if ( index < 0 || index > this.size())
+        throw Error( '(index out of bounds');
+    }
+    protected function removeRange( nFromIndex:int, nToIndex:int):void
+    {
+      var iterator:IListIterator = this.listIterator();
+      var nCount:int = nToIndex - nFromIndex;
+      for ( var i:int = 0; i < nCount; i++)
+      {
+        iterator.next();
+        iterator.remove();
+      }
+    }
+
+    public override function add( element:Object):Boolean
+    {
+      this.addTo( this.size(), element);
+      return true;
+    }
+    public function addTo( nIndex:int, element:Object):void
+    {
+      throw Error( 'unsupported operation');
+    }
+    public function addToAll( nStartIndex:int, colletion:ICollection):Boolean
+    {
+      this.rangeCheck( nStartIndex);
+      var bModified:Boolean = false;
+      var iterator:IIterator = colletion.iterator();
+      while ( iterator.hasNext())
+      {
+        this.add( nStartIndex++, iterator.next());
+        bModified = true;
+      }
+      return bModified;
+    }
+    public function get( nIndex:int):Object
+    {
+      throw Error( 'get must be implemented');
+    }
+    public function indexOf( element:Object):int
+    {
+      var bNext:Boolean = true;
+      var nIndex:int = -1;
+      var iterator:IListIterator = this.listIterator();
+      if ( element == null)
+      {
+        while ( iterator.hasNext() && bNext)
+        {
+          if ( iterator.next() == null)
+          {
+            nIndex = iterator.previousIndex();
+            bNext = false;
+          }
+        }
+      }
+      else
+      {
+        while ( iterator.hasNext() && bNext)
+        {
+          if ( element.valueOf() == iterator.next().valueOf())
+          {
+            nIndex = iterator.previousIndex();
+            bNext = false;
+          }
+        }
+      }
+      return nIndex;
+    }
+    public function lastIndexOf( element:Object):int
+    {
+      var bNext:Boolean = true;
+      var nIndex:int = -1;
+      var iterator:IListIterator = this.listIterator( this.size());
+      if ( element == null)
+      {
+        while ( iterator.hasPrevious() && bNext)
+        {
+          if ( iterator.previous() == null)
+          {
+            nIndex = iterator.nextIndex();
+            bNext = false;
+          }
+        }
+      }
+      else
+      {
+        while ( iterator.hasPrevious() && bNext)
+        {
+          if ( element.valueOf() == iterator.previous().valueOf())
+          {
+            nIndex = iterator.nextIndex();
+            bNext = false;
+          }
+        }
+      }
+      return nIndex;
+    }
+    public override function iterator():IIterator
+    {
+      return this.listIterator();
+    }
+    public function listIterator( nStartIndex:int = 0):IListIterator
+    {
+      return new CListIterator( this, nStartIndex);
+    }
+    public function removeAt( nIndex:int):Object
+    {
+      throw Error( 'unsupported operation');
+    }
+    public function set( nIndex:int, element:Object):Object
+    {
+      throw Error( 'unsupported operation');
+    }
+    public function subList( nStartIndex:int, nEndIndex:int):IList
+    {
+      throw Error( 'unsupported operation');
+    }
+  }
+}
+
+class CListIterator implements IListIterator
+{
+  private var m_list:IList;
+  private var m_nSavedCursor:int;
+  private var m_nCursor:int;
+
+  public function CListIterator( list:IList, nStartIndex:int):void
+  {
+    this.m_nCursor = nStartIndex;
+    this.m_nSavedCursor = -1;
+  }
+  public function hasNext():Boolean
+  {
+    return ( this.m_nCursor != this.m_list.size());
+  }
+  public function next():Object
+  {
+    var next:Object = this.m_list.get( this.m_nCursor);
+    this.m_nSavedCursor = this.m_nCursor;
+    this.m_nCursor++;
+    return next;
+    int i = cursor - 1;
+  }
+  public function remove():void
+  {
+    if ( this.m_nSavedCursor < 0)
+      throw Error( 'incorrect state');
+    this.m_list.removeAt( this.m_nSavedCursor);
+    if ( this.m_nSavedCursor < this.m_nCursor)
+      this.m_nCursor--;
+    this.m_nSavedCursor = -1;
+  }
+  public function hasPrevious():Boolean
+  {
+    return ( this.m_nCursor != 0);
+  }
+  public function previous():Object
+  {
+    var previous:Object = this.m_list.get(( this.m_nCursor - 1));
+    this.m_nSavedCursor = this.m_nCursor;
+    this.m_nCursor--;
+    return previous;
+  }
+  public function nextIndex():int
+  {
+    return this.m_nCursor;
+  }
+  public function previousIndex():int
+  {
+    return ( this.m_nCursor - 1);
+  }
+  public function set( element:Object):void
+  {
+    if ( this.m_nSavedCursor < 0)
+      throw Error( 'incorrect state');
+    this.m_list.set( this.m_nSavedCursor, element);
+  }
+  public function add( element:Object):void
+  {
+    this.m_list.addTo( this.m_nCursor, element);
+    this.m_nSavedCursor = -1;
+    this.m_nCursor++;
   }
 }

@@ -5,8 +5,8 @@ package alx.common.util
    * @author Alexander Volkov
    * @version 1.0
    */
-  public class CAbstractCollection//.< T>
-  implements ICollection//.< T>
+  public class CAbstractCollection
+  implements ICollection
   {
     protected function CAbstractCollection():void
     {
@@ -73,7 +73,7 @@ package alx.common.util
     {
       return ( this.size() == 0);
     }
-    public function iterator():IIterator//IIterator.< T>
+    public function iterator():IIterator
     {
       throw Error( 'iterator must be implemented');
     }
@@ -134,7 +134,7 @@ package alx.common.util
       }
       return bModified;
     }
-    public function Abstract size():int;
+    public function size():int;
     {
       throw Error( 'size must be implemented');
     }

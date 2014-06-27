@@ -5,7 +5,7 @@ package alx.common.util
    * @author Alexander Volkov
    * @version 1.0
    */
-  public interface IIterator//.< T>
+  public interface IIterator
   {
     /**
      * Checks if there is a next element.
@@ -16,8 +16,8 @@ package alx.common.util
      * Gets next element.
      * @return Object
      */
-    public function next():Object//T;
+    public function next():Object;
     /** Deletes current element.*/
-    public function remove():void
+    public function remove():void;
   }
 }
