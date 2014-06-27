@@ -13,9 +13,9 @@ package alx.common.util
     {
     }
 
-    protected function rangeCheck( nIndex:int):void
-    {
-      if ( nIndex < 0 || nIndex > this.size())
+    protected function rangeCheck( nIndex:int, bStrict:Boolean = false):void
+    {     
+      if ( nIndex < 0 || nIndex > this.size() || ( bStrict && nIndex == this.size()))
         throw Error( '(index out of bounds');
     }
     protected function removeRange( nFromIndex:int, nToIndex:int):void
@@ -36,7 +36,7 @@ package alx.common.util
     }
     public function addTo( nIndex:int, element:Object):void
     {
-      throw Error( 'unsupported operation');
+      throw Error( 'addTo must be implemented');
     }
     public function addToAll( nStartIndex:int, colletion:ICollection):Boolean
     {

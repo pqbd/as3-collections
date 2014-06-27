@@ -21,14 +21,19 @@ package alx.common.util
     }
     public override function get( nIndex:int):Object
     {
-      this.rangeCheck( nIndex);
+      this.rangeCheck( nIndex, true);
       return this.m_arData[ nIndex];
     }
     public override function addTo( nIndex:int, element:Object):void
     {
       this.rangeCheck( nIndex);
-      this.m_arData = this.m_arData.slice( 0, ( nIndex + 1)).concat( new Array( 0).concat(  this.m_arData.slice(( nIndex + 1))));
-      this.m_arData[ nIndex] = element;
+      var arLeft:Array;
+      if ( nIndex == 0)
+        arLeft = new Array();
+      else
+        arLeft = this.m_arData.slice( 0, nIndex);
+      arLeft.push( element);
+      this.m_arData = arLeft.concat( this.m_arData.slice( nIndex));
     }
     public override function removeAt( nIndex:int):Object
     {
