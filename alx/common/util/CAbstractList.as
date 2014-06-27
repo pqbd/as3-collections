@@ -146,6 +146,7 @@ class CListIterator implements IListIterator
 
   public function CListIterator( list:IList, nStartIndex:int):void
   {
+    this.m_list = list;
     this.m_nCursor = nStartIndex;
     this.m_nSavedCursor = -1;
   }

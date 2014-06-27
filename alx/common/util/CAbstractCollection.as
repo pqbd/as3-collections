@@ -14,7 +14,7 @@ package alx.common.util
 
     public function add( element:Object):Boolean
     {
-      throw Error( 'unsupported operation');
+      throw Error( 'add must be implemented');
     }
     public function addAll( collection:ICollection):Boolean
     {
@@ -151,29 +151,24 @@ package alx.common.util
     {
       var strResult:String = '';
       var iterator:IIterator = this.iterator();
-      if ( iterator.hasNext())
+      strResult += '{';
+      while ( iterator.hasNext())
       {
-        strResult += '{';
-        while ( iterator.hasNext())
-        {
-          var item:Object = iterator.next();
-          if ( item == this)
-            strResult += '(this)';
-          else
-            strResult += item;
-          if ( iterator.hasNext())
-            strResult += ', ';
-        }
-        strResult += '}';
+        var item:Object = iterator.next();
+        if ( item === this)
+          strResult += '(this)';
+        else
+          strResult += item;
+        if ( iterator.hasNext())
+          strResult += ', ';
       }
-      else
-        strResult = '{}';
+      strResult += '}';
       return strResult;
     }
 
     public function valueOf():Object
     {
-      return super.valueOf();
+      return this;
     }
   }
 }

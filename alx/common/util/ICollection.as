@@ -38,7 +38,7 @@ package alx.common.util
     /** Checks if the collection is empty.
      * @return Boolean
      */
-    function isEmpty():Boolean;    
+    function isEmpty():Boolean;
     /** Removes the element from the collection.
      * @param element Object
      * @return Boolean
