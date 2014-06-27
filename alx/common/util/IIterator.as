@@ -11,13 +11,13 @@ package alx.common.util
      * Checks if there is a next element.
      * @return Boolean
      */
-    public function hasNext():Boolean;
+    function hasNext():Boolean;
     /**
      * Gets next element.
      * @return Object
      */
-    public function next():Object;
+    function next():Object;
     /** Deletes current element.*/
-    public function remove():void;
+    function remove():void;
   }
 }

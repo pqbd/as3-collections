@@ -15,9 +15,9 @@ package alx.common.util
       super();
       this.m_arData = new Array();
     }
-    public override function size():int;
+    public override function size():int
     {
-      throw this.m_arData.length;
+      return this.m_arData.length;
     }
     public override function get( nIndex:int):Object
     {
@@ -27,7 +27,7 @@ package alx.common.util
     public override function addTo( nIndex:int, element:Object):void
     {
       this.rangeCheck( nIndex);
-      this.m_arData = this.m_arData.slice( 0, ( nIndex + 1)).concat( Array( 0).concat(  this.m_arData.slice(( nIndex + 1))));
+      this.m_arData = this.m_arData.slice( 0, ( nIndex + 1)).concat( new Array( 0).concat(  this.m_arData.slice(( nIndex + 1))));
       this.m_arData[ nIndex] = element;
     }
     public override function removeAt( nIndex:int):Object

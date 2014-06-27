@@ -11,6 +11,6 @@ package alx.common.util
      * Gets an iterator over a set of elements.
      * @return {@link IIterator}
      */
-    public function iterator():IIterator
+    function iterator():IIterator;
   }
 }

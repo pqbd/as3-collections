@@ -1,5 +1,6 @@
 import alx.common.test.*;
-import test.alx.common.util.CObjectUtilsTest;
+//import test.alx.common.util.CObjectUtilsTest;
+import test.alx.common.util.CArrayListTest;
 
 // refactoring
 //CUnitTests.init( CTester, CUnitTests.SIMPLE_MODE, true);
@@ -8,6 +9,7 @@ import test.alx.common.util.CObjectUtilsTest;
 //CUnitTests.init( CTester, CUnitTests.FULL_MODE, true);
 CUnitTests.init( CTester, CUnitTests.FULL_MODE, false);
 
-CUnitTests.run( CObjectUtilsTest
+CUnitTests.run( //CObjectUtilsTest
+              CArrayListTest
               );
 CUnitTests.printResult( root);

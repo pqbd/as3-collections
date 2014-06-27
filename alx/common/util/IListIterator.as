@@ -8,31 +8,31 @@ package alx.common.util
   public interface IListIterator
   extends IIterator
   {
-    //+public function hasNext():Boolean;
-    //+public function next():Object;
-    //+public function remove():void;
+    //+function hasNext():Boolean;
+    //+function next():Object;
+    //+function remove():void;
 
     /**
      * Checks if there is a preious element.
      * @return Boolean
      */
-    public function hasPrevious():Boolean;
+    function hasPrevious():Boolean;
     /**
      * Gets previous element.
      * @return Object
      */
-    public function previous():Object;
+    function previous():Object;
     /** Gets next index.
      * @return int
      */
-    public function nextIndex():int;
+    function nextIndex():int;
     /** Gets previous index.
      * @return int
      */
-    public function previousIndex():int;
+    function previousIndex():int;
     /** Replaces the last element returned by next() or previous().*/
-    public function set( element:Object):void;
+    function set( element:Object):void;
     /** Inserts the specified element into the list before the next element that would be returned by next().*/
-    public function add( element:Object):void;
+    function add( element:Object):void;
   }
 }

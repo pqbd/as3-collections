@@ -8,7 +8,7 @@ package alx.common.util
   public class CAbstractCollection
   implements ICollection
   {
-    protected function CAbstractCollection():void
+    public function CAbstractCollection():void
     {
     }
 
@@ -62,7 +62,7 @@ package alx.common.util
     public function containsAll( collection:ICollection):Boolean
     {
       var iterator:IIterator = collection.iterator();
-      while ( iterator.hashNext())
+      while ( iterator.hasNext())
       {
         if ( !this.contains( iterator.next()))
           return false;
@@ -134,7 +134,7 @@ package alx.common.util
       }
       return bModified;
     }
-    public function size():int;
+    public function size():int
     {
       throw Error( 'size must be implemented');
     }
@@ -169,6 +169,11 @@ package alx.common.util
       else
         strResult = '{}';
       return strResult;
+    }
+
+    public function valueOf():Object
+    {
+      return super.valueOf();
     }
   }
 }

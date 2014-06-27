@@ -8,60 +8,60 @@ package alx.common.util
   public interface ICollection
   extends IIterable
   {
-    //+public function iterator():IIterator
+    //+function iterator():IIterator
 
     /** Adds an element into the collection.
      * @param element Object
      * @return Boolean
      */
-    public function add( element:Object):Boolean;
+    function add( element:Object):Boolean;
     /** Adds all elements from the certain colletion into the collection.
      * @param collection {@link ICollection}
      * @return Boolean
      */
-    public function addAll( collection:ICollection):Boolean;
+    function addAll( collection:ICollection):Boolean;
     /** Clears collection.*/
-    public function clear():void;
+    function clear():void;
     /** Checks if the certain object is in the collection.
      * @param element Object
      * @return Boolean
      */
-    public function contains( element:Object):Boolean;
+    function contains( element:Object):Boolean;
     /** Checks if the collection contains all elements from another collection.
      * @param collection {@link ICollection}
      * @return Boolean
      */
-    public function containsAll( collection:ICollection):Boolean;
-    //-public function equals( element:Object):Boolean;
-    //-public function hashCode():int;
-    public function valueOf():Object;
+    function containsAll( collection:ICollection):Boolean;
+    //-function equals( element:Object):Boolean;
+    //-function hashCode():int;
+    function valueOf():Object;
     /** Checks if the collection is empty.
      * @return Boolean
      */
-    public function isEmpty():Boolean;    
+    function isEmpty():Boolean;    
     /** Removes the element from the collection.
      * @param element Object
      * @return Boolean
      */
-    public function remove( element:Object):Boolean;
+    function remove( element:Object):Boolean;
     /** Removes all elements of another collection from the collection.
      * @param collection {@link ICollection}
      * @return Boolean
      */
-    public function removeAll( collection:ICollection):Boolean;
+    function removeAll( collection:ICollection):Boolean;
     /** Removes all elements from the collection if they are not in the another collection.
      * @param collection {@link ICollection}
      * @return Boolean
      */
-    public function retainAll( collection:ICollection):Boolean;
+    function retainAll( collection:ICollection):Boolean;
     /** Gets number of elements in the collection.
      * @return int
      */
-    public function size():int;
+    function size():int;
     /** Gets Array representaion of the collection.
      * @param arr Array
      * @return Array
      */
-    public function toArray( arr:Array = null):Array;
+    function toArray( arr:Array = null):Array;
   }
 }

@@ -9,13 +9,13 @@ package alx.common.util
   extends CAbstractCollection
   implements IList
   {
-    protected function CAbstractList():void
+    public function CAbstractList():void
     {
     }
 
     protected function rangeCheck( nIndex:int):void
     {
-      if ( index < 0 || index > this.size())
+      if ( nIndex < 0 || nIndex > this.size())
         throw Error( '(index out of bounds');
     }
     protected function removeRange( nFromIndex:int, nToIndex:int):void
@@ -45,7 +45,7 @@ package alx.common.util
       var iterator:IIterator = colletion.iterator();
       while ( iterator.hasNext())
       {
-        this.add( nStartIndex++, iterator.next());
+        this.addTo( nStartIndex++, iterator.next());
         bModified = true;
       }
       return bModified;
@@ -135,6 +135,9 @@ package alx.common.util
   }
 }
 
+import alx.common.util.IList;
+import alx.common.util.IListIterator;
+
 class CListIterator implements IListIterator
 {
   private var m_list:IList;
@@ -156,7 +159,6 @@ class CListIterator implements IListIterator
     this.m_nSavedCursor = this.m_nCursor;
     this.m_nCursor++;
     return next;
-    int i = cursor - 1;
   }
   public function remove():void
   {
