@@ -17,15 +17,15 @@ package alx.common.util
     {
     }
 
-    function size():int
+    public function size():int
     {
       return this.entrySet().size();
     }
-    function isEmpty():Boolean
+    public function isEmpty():Boolean
     {
       return ( this.size() == 0);
     }
-    function containsKey( key:Object):Boolean
+    public function containsKey( key:Object):Boolean
     {
       var bNext = true;
       var iterator:IIterator = this.keySet().iterator();
@@ -47,7 +47,7 @@ package alx.common.util
       }
       return !bNext;
     }
-    function containsValue( value:Object):Boolean
+    public function containsValue( value:Object):Boolean
     {
       var bNext = true;
       var iterator:IIterator = this.entrySet.iterator();
@@ -71,7 +71,7 @@ package alx.common.util
       }
       return !bNext;
     }
-    function get( key:Object):Object
+    public function get( key:Object):Object
     {
       var bNext = true;
       var iterator:IIterator = this.entrySet().iterator();
@@ -102,11 +102,11 @@ package alx.common.util
       }
       return valueToReturn;
     }
-    function put( key:Object, value:Object):Object
+    public function put( key:Object, value:Object):Object
     {
       throw Error( 'put must be implemented');
     }
-    function remove( key:Object):Object
+    public function remove( key:Object):Object
     {
       var bNext = true;
       var iterator:IIterator = this.entrySet().iterator();
@@ -143,7 +143,7 @@ package alx.common.util
       }
       return oldValue;
     }
-    function putAll( map:IMap):void
+    public function putAll( map:IMap):void
     {
       var iterator:IIterator = map.entrySet().iterator();
       while ( iterator.hasNext())
@@ -152,23 +152,23 @@ package alx.common.util
         this.put( entry.getKey(), entry.getValue());
       }
     }
-    function clear():void
+    public function clear():void
     {
       this.entrySet().clear();
     }
-    function keySet():ISet
+    public function keySet():ISet
     {
       if ( this.m_keySet == null)
         this.m_keySet = new CKeySet( this);
       return this.m_keySet;
     }    
-    function values():ICollection
+    public function values():ICollection
     {
       if ( this.m_values == null)
         this.m_values = new CValuesCollection( this);
       return this.m_values;
     }
-    function entrySet():ISet
+    public function entrySet():ISet
     {
       throw Error( 'entrySet must be implemented');
     }
@@ -304,15 +304,15 @@ implements IMapMap
   {
     this.set( key, value);
   }
-  function getKey():Object
+  public function getKey():Object
   {
     return this.m_key;
   }
-  function getValue():Object
+  public function getValue():Object
   {
     return this.m_value;
   }
-  function setValue( value:Object):Object
+  public function setValue( value:Object):Object
   {
     throw Error( 'not supported operation');
   }
@@ -329,7 +329,7 @@ extends CSimpleImmutableMapEntry
   {
     super( key, value);
   }
-  override function setValue( value:Object):Object
+  public override function setValue( value:Object):Object
   {
     var oldValue:Object = this.getValue();
     this.set( this.getKey(), value);
