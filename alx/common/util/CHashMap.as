@@ -22,22 +22,22 @@ package alx.common.util
     {
       var oldValue:Object = null;
       var nIndex:int = this.m_keyList.indexOf( key);
-      if ( nIndex > 0)
-        oldValue = this.m_entryList.get( nIndex).getValue();
-      else
+      if ( nIndex < 0)
       {
         nIndex = this.m_keyList.size();
-        this.m_keyList.addTo( nIndex, key);
+        this.m_keyList.set( nIndex, key);
       }
-      this.m_entryList.addTo( nIndex, this.createSimpleImmutableEntry( key, value));
+      else
+        oldValue = this.m_entryList.get( nIndex).getValue();
+
+      this.m_entryList.set( nIndex, this.createSimpleImmutableEntry( key, value));
       return oldValue;
     }
     public override function get( key:Object):Object
     {
       var valueToReturn:Object = null;
       var nIndex:int = this.m_keyList.indexOf( key);
-      if ( nIndex > 0)
-        valueToReturn = this.m_entryList.get( nIndex).getValue();
+      valueToReturn = this.m_entryList.get( nIndex).getValue();
       return valueToReturn;
     }
     public override function entrySet():ISet
@@ -100,15 +100,15 @@ implements IIterator
   }
   public function next():Object
   {
-    this.m_lastIndex = this.m_keyList.indexOf(  this.m_iterator.next());
+    var next:Object = this.m_iterator.next();
+    this.m_lastIndex = this.m_keyList.indexOf( next);
     return this.m_entryList.get( this.m_lastIndex);
   }
   public function remove():void
   {
-    if ( this.m_lastIndex > 0)
-    {
-      this.m_keyList.removeAt( this.m_lastIndex);
-      this.m_entryList.removeAt( this.m_lastIndex);
-    }
+    if ( this.m_lastIndex < 0)
+      throw Error( 'incorrect state');
+    this.m_iterator.remove();
+    this.m_entryList.removeAt( this.m_lastIndex);
   }
 }

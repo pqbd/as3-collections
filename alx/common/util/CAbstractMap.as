@@ -327,6 +327,10 @@ implements IMapEntry
     this.m_key = key;
     this.m_value = value;
   }
+  public function toString():String
+  {
+    return this.m_key+'='+this.m_value;
+  }
 }
 class CSimpleMapEntry
 extends CSimpleImmutableMapEntry

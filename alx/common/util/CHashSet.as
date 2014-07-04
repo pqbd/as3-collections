@@ -23,7 +23,7 @@ package alx.common.util
     }
     public override function iterator():IIterator
     {
-      throw this.m_map.keySet().iterator();
+      return this.m_map.keySet().iterator();
     }
     public override function size():int
     {

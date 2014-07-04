@@ -1,20 +1,20 @@
 package test.alx.common.util
 {
   import alx.common.test.CUnitTest;
-  import alx.common.util.ICollection;
+  import alx.common.util.ISet;
   import alx.common.util.IIterator;
-  import alx.common.util.CAbstractCollection;
+  import alx.common.util.CAbstractSet;
 
-  public class CAbstractCollectionTest extends CUnitTest
+  public class CAbstractSetTest extends CUnitTest
   {
-    public function CAbstractCollectionTest( strLabel:String):void
+    public function CAbstractSetTest( strLabel:String):void
     {
       super( strLabel);
     }
 
     protected override function testList():Array
     {
-      return new Array( this.testCollectionCreation
+      return new Array( this.testSetCreation
                       , this.testAdd
                       , this.testAddAll
                       , this.testClear
@@ -30,155 +30,167 @@ package test.alx.common.util
                       );
     }
 
-    public function createCollection():ICollection
+    public function createSet():ISet
     {
-      throw Error( 'createCollection must be implemented');
+      throw Error( 'createSet must be implemented');
     }
 
-    public function testCollectionCreation():void
+    public function testSetCreation():void
     {
-      const collection:ICollection = this.createCollection();
-      this.getTester().isTrue( 'collection.isEmpty()'
-                              , collection.isEmpty()
+      const set:ISet = this.createSet();
+      this.getTester().isTrue( 'set.isEmpty()'
+                              , set.isEmpty()
                               );
-      this.getTester().isEqual( 'collection.size()'
-                              , collection.size()
+      this.getTester().isEqual( 'set.size()'
+                              , set.size()
                               , 0
                               );
     }
 
     public function testAdd():void
     {
-      const collection:ICollection = this.createCollection();
-      this.getTester().isTrue( 'collection.add( 1)'
-                              , collection.add( 1)
+      const set:ISet = this.createSet();
+      this.getTester().isTrue( 'set.add( 1)'
+                              , set.add( 1)
                               );
-      this.getTester().isTrue( 'collection.add( 2)'
-                              , collection.add( 2)
+      this.getTester().isTrue( 'set.add( 2)'
+                              , set.add( 2)
                               );
-      this.getTester().isTrue( 'collection.add( 3)'
-                              , collection.add( 3)
+      this.getTester().isTrue( 'set.add( 3)'
+                              , set.add( 3)
                               );
-      this.getTester().isFalse( 'collection.isEmpty()'
-                              , collection.isEmpty()
+      this.getTester().isFalse( 'set.isEmpty()'
+                              , set.isEmpty()
                               );
-      this.getTester().isEqual( 'collection.size()'
-                              , collection.size()
+      this.getTester().isEqual( 'set.size()'
+                              , set.size()
                               , 3
                               );
-      this.getTester().isTrue( 'collection.add( 4)'
-                              , collection.add( 4)
+      this.getTester().isTrue( 'set.add( 4)'
+                              , set.add( 4)
                               );
-      this.getTester().isFalse( 'collection.isEmpty()'
-                              , collection.isEmpty()
+      this.getTester().isFalse( 'set.isEmpty()'
+                              , set.isEmpty()
                               );
-      this.getTester().isEqual( 'collection.size()'
-                              , collection.size()
+      this.getTester().isEqual( 'set.size()'
+                              , set.size()
+                              , 4
+                              );
+      this.getTester().isFalse( 'set.add( 4)'
+                              , set.add( 4)
+                              );
+      this.getTester().isFalse( 'set.isEmpty()'
+                              , set.isEmpty()
+                              );
+      this.getTester().isEqual( 'set.size()'
+                              , set.size()
                               , 4
                               );
     }
     public function testAddAll():void
     {
-      const collectionA:ICollection = this.createCollection();
-      const collectionB:ICollection = this.createCollection();
-      collectionB.add( 1);
-      collectionB.add( 2);
-      collectionB.add( 3);
-      this.getTester().isTrue( 'collectionA.addAll( collectionB)'
-                              , collectionA.addAll( collectionB)
+      const setA:ISet = this.createSet();
+      const setB:ISet = this.createSet();
+      setB.add( 1);
+      setB.add( 2);
+      setB.add( 2);
+      setB.add( 3);
+      this.getTester().isTrue( 'setA.addAll( setB)'
+                              , setA.addAll( setB)
                               );
-      this.getTester().isEqual( 'collectionA.size()'
-                              , collectionA.size()
+      this.getTester().isEqual( 'setA.size()'
+                              , setA.size()
                               , 3
                               );
     }
     public function testClear():void
     {
-      const collection:ICollection = this.createCollection();
-      collection.add( 1);
-      collection.add( 2);
-      collection.add( 3);
-      this.getTester().isFalse( 'collection.isEmpty()'
-                              , collection.isEmpty()
+      const set:ISet = this.createSet();
+      set.add( 1);
+      set.add( 2);
+      set.add( 3);
+      this.getTester().isFalse( 'set.isEmpty()'
+                              , set.isEmpty()
                               );
-      collection.clear();
-      this.getTester().isTrue( 'collection.isEmpty()'
-                              , collection.isEmpty()
+      set.clear();
+      this.getTester().isTrue( 'set.isEmpty()'
+                              , set.isEmpty()
                               );
     }
     public function testContains():void
     {
-      const collection:ICollection = this.createCollection();
-      collection.add( 1);
-      collection.add( 2);
-      collection.add( 3);
-      this.getTester().isFalse( 'collection.contains( 11)'
-                              , collection.contains( 11)
+      const set:ISet = this.createSet();
+      set.add( 1);
+      set.add( 2);
+      set.add( 2);
+      set.add( 3);
+      this.getTester().isFalse( 'set.contains( 11)'
+                              , set.contains( 11)
                               );
-      this.getTester().isTrue( 'collection.contains( 2)'
-                              , collection.contains( 2)
+      this.getTester().isTrue( 'set.contains( 2)'
+                              , set.contains( 2)
                               );
     }
     public function testContainsAll():void
     {
-      const collectionA:ICollection = this.createCollection();
-      const collectionB:ICollection = this.createCollection();
-      const collectionC:ICollection = this.createCollection();
-      const collectionD:ICollection = this.createCollection();
-      collectionA.add( 1);
-      collectionA.add( 2);
-      collectionA.add( 3);
-      collectionB.add( 1);
-      collectionB.add( 2);
-      collectionB.add( 3);
-      collectionC.add( 1);
-      collectionC.add( 2);
-      collectionC.add( 3);
-      collectionC.add( 5);
-      collectionD.add( 1);
-      collectionD.add( 3);
-      collectionD.add( 3);
-      this.getTester().isTrue( 'collectionA.containsAll( collectionB)'
-                              , collectionA.containsAll( collectionB)
+      const setA:ISet = this.createSet();
+      const setB:ISet = this.createSet();
+      const setC:ISet = this.createSet();
+      const setD:ISet = this.createSet();
+      setA.add( 1);
+      setA.add( 2);
+      setA.add( 3);
+      setB.add( 1);
+      setB.add( 2);
+      setB.add( 3);
+      setC.add( 1);
+      setC.add( 2);
+      setC.add( 3);
+      setC.add( 5);
+      setD.add( 1);
+      setD.add( 3);
+      setD.add( 3);
+      this.getTester().isTrue( 'setA.containsAll( setB)'
+                              , setA.containsAll( setB)
                               );
-      this.getTester().isTrue( 'collectionC.containsAll( collectionA)'
-                              , collectionC.containsAll( collectionA)
+      this.getTester().isTrue( 'setC.containsAll( setA)'
+                              , setC.containsAll( setA)
                               );
-      this.getTester().isFalse( 'collectionA.containsAll( collectionC)'
-                              , collectionA.containsAll( collectionC)
+      this.getTester().isFalse( 'setA.containsAll( setC)'
+                              , setA.containsAll( setC)
                               );
-      this.getTester().isTrue( 'collectionA.containsAll( collectionD)'
-                              , collectionA.containsAll( collectionD)
+      this.getTester().isTrue( 'setA.containsAll( setD)'
+                              , setA.containsAll( setD)
                               );
-      collectionD.add( 7);
-      this.getTester().isFalse( 'collectionA.containsAll( collectionD)'
-                              , collectionA.containsAll( collectionD)
+      setD.add( 7);
+      this.getTester().isFalse( 'setA.containsAll( setD)'
+                              , setA.containsAll( setD)
                               );
     }
     public function testToString():void
     {
-      const collection:CAbstractCollection = this.createCollection() as CAbstractCollection;
-      const collectionA:CAbstractCollection = this.createCollection() as CAbstractCollection;
-      const collectionB:CAbstractCollection = this.createCollection() as CAbstractCollection;
-      collectionA.add( 1);
-      collectionA.add( 2);
-      collectionA.add( 3);
-      collectionB.add( 'a');
-      collectionB.add( 'b');
-      collectionB.add( 'c');
-      collection.add( collectionA);
-      collection.add( collectionB);
-      collection.add( collection);
-      this.getTester().isEqual( 'collectionA.toString()'
-                              , collectionA.toString()
+      const set:CAbstractSet = this.createSet() as CAbstractSet;
+      const setA:CAbstractSet = this.createSet() as CAbstractSet;
+      const setB:CAbstractSet = this.createSet() as CAbstractSet;
+      setA.add( 1);
+      setA.add( 2);
+      setA.add( 3);
+      setB.add( 'a');
+      setB.add( 'b');
+      setB.add( 'c');
+      set.add( setA);
+      set.add( setB);
+      set.add( set);
+      this.getTester().isEqual( 'setA.toString()'
+                              , setA.toString()
                               , '{1, 2, 3}'
                               );
-      this.getTester().isEqual( 'collectionB.toString()'
-                              , collectionB.toString()
+      this.getTester().isEqual( 'setB.toString()'
+                              , setB.toString()
                               , '{a, b, c}'
                               );
-      this.getTester().isEqual( 'collection.toString()'
-                              , collection.toString()
+      this.getTester().isEqual( 'set.toString()'
+                              , set.toString()
                               , '{{1, 2, 3}, {a, b, c}, (this)}'
                               );
     }
@@ -187,145 +199,147 @@ package test.alx.common.util
     }   
     public function testRemove():void
     {
-      const collection:ICollection = this.createCollection();
-      collection.add( 1);
-      collection.add( 2);
-      collection.add( 3);
-      this.getTester().isTrue( 'collection.contains( 2)'
-                              , collection.contains( 2)
+      const set:ISet = this.createSet();
+      set.add( 1);
+      set.add( 2);
+      set.add( 2);
+      set.add( 3);
+      this.getTester().isTrue( 'set.contains( 2)'
+                              , set.contains( 2)
                               );
-      collection.remove( 2);
-      this.getTester().isFalse( 'collection.contains( 2)'
-                              , collection.contains( 2)
+      set.remove( 2);
+      this.getTester().isFalse( 'set.contains( 2)'
+                              , set.contains( 2)
                               );
     }
     public function testRemoveAll():void
     {
-      const collectionA:ICollection = this.createCollection();
-      const collectionB:ICollection = this.createCollection();
-      collectionA.add( 1);
-      collectionA.add( 2);
-      collectionA.add( 3);
-      collectionA.add( 4);
-      collectionA.add( 5);
-      collectionB.add( 2);
-      collectionB.add( 3);
-      collectionB.add( 4);
-      this.getTester().isTrue( 'collectionA.contains( 1)'
-                              , collectionA.contains( 1)
+      const setA:ISet = this.createSet();
+      const setB:ISet = this.createSet();
+      setA.add( 1);
+      setA.add( 2);
+      setA.add( 3);
+      setA.add( 4);
+      setA.add( 5);
+      setB.add( 2);
+      setB.add( 3);
+      setB.add( 4);
+      this.getTester().isTrue( 'setA.contains( 1)'
+                              , setA.contains( 1)
                               );
-      this.getTester().isTrue( 'collectionA.contains( 2)'
-                              , collectionA.contains( 2)
+      this.getTester().isTrue( 'setA.contains( 2)'
+                              , setA.contains( 2)
                               );
-      this.getTester().isTrue( 'collectionA.contains( 3)'
-                              , collectionA.contains( 3)
+      this.getTester().isTrue( 'setA.contains( 3)'
+                              , setA.contains( 3)
                               );
-      this.getTester().isTrue( 'collectionA.contains( 4)'
-                              , collectionA.contains( 4)
+      this.getTester().isTrue( 'setA.contains( 4)'
+                              , setA.contains( 4)
                               );
-      this.getTester().isTrue( 'collectionA.contains( 5)'
-                              , collectionA.contains( 5)
+      this.getTester().isTrue( 'setA.contains( 5)'
+                              , setA.contains( 5)
                               );
 
-      collectionA.removeAll( collectionB);
-      this.getTester().isTrue( 'collectionA.contains( 1)'
-                              , collectionA.contains( 1)
+      setA.removeAll( setB);
+      this.getTester().isTrue( 'setA.contains( 1)'
+                              , setA.contains( 1)
                               );
-      this.getTester().isFalse( 'collectionA.contains( 2)'
-                              , collectionA.contains( 2)
+      this.getTester().isFalse( 'setA.contains( 2)'
+                              , setA.contains( 2)
                               );
-      this.getTester().isFalse( 'collectionA.contains( 3)'
-                              , collectionA.contains( 3)
+      this.getTester().isFalse( 'setA.contains( 3)'
+                              , setA.contains( 3)
                               );
-      this.getTester().isFalse( 'collectionA.contains( 4)'
-                              , collectionA.contains( 4)
+      this.getTester().isFalse( 'setA.contains( 4)'
+                              , setA.contains( 4)
                               );
-      this.getTester().isTrue( 'collectionA.contains( 5)'
-                              , collectionA.contains( 5)
+      this.getTester().isTrue( 'setA.contains( 5)'
+                              , setA.contains( 5)
                               );
     }
     public function testRetainAll():void
     {
-      const collectionA:ICollection = this.createCollection();
-      const collectionB:ICollection = this.createCollection();
-      collectionA.add( 1);
-      collectionA.add( 2);
-      collectionA.add( 3);
-      collectionA.add( 4);
-      collectionA.add( 5);
-      collectionB.add( 2);
-      collectionB.add( 3);
-      collectionB.add( 4);
-      this.getTester().isTrue( 'collectionA.contains( 1)'
-                              , collectionA.contains( 1)
+      const setA:ISet = this.createSet();
+      const setB:ISet = this.createSet();
+      setA.add( 1);
+      setA.add( 2);
+      setA.add( 3);
+      setA.add( 4);
+      setA.add( 5);
+      setB.add( 2);
+      setB.add( 3);
+      setB.add( 4);
+      this.getTester().isTrue( 'setA.contains( 1)'
+                              , setA.contains( 1)
                               );
-      this.getTester().isTrue( 'collectionA.contains( 2)'
-                              , collectionA.contains( 2)
+      this.getTester().isTrue( 'setA.contains( 2)'
+                              , setA.contains( 2)
                               );
-      this.getTester().isTrue( 'collectionA.contains( 3)'
-                              , collectionA.contains( 3)
+      this.getTester().isTrue( 'setA.contains( 3)'
+                              , setA.contains( 3)
                               );
-      this.getTester().isTrue( 'collectionA.contains( 4)'
-                              , collectionA.contains( 4)
+      this.getTester().isTrue( 'setA.contains( 4)'
+                              , setA.contains( 4)
                               );
-      this.getTester().isTrue( 'collectionA.contains( 5)'
-                              , collectionA.contains( 5)
+      this.getTester().isTrue( 'setA.contains( 5)'
+                              , setA.contains( 5)
                               );
 
-      collectionA.retainAll( collectionB);
-      this.getTester().isFalse( 'collectionA.contains( 1)'
-                              , collectionA.contains( 1)
+      setA.retainAll( setB);
+      this.getTester().isFalse( 'setA.contains( 1)'
+                              , setA.contains( 1)
                               );
-      this.getTester().isTrue( 'collectionA.contains( 2)'
-                              , collectionA.contains( 2)
+      this.getTester().isTrue( 'setA.contains( 2)'
+                              , setA.contains( 2)
                               );
-      this.getTester().isTrue( 'collectionA.contains( 3)'
-                              , collectionA.contains( 3)
+      this.getTester().isTrue( 'setA.contains( 3)'
+                              , setA.contains( 3)
                               );
-      this.getTester().isTrue( 'collectionA.contains( 4)'
-                              , collectionA.contains( 4)
+      this.getTester().isTrue( 'setA.contains( 4)'
+                              , setA.contains( 4)
                               );
-      this.getTester().isFalse( 'collectionA.contains( 5)'
-                              , collectionA.contains( 5)
+      this.getTester().isFalse( 'setA.contains( 5)'
+                              , setA.contains( 5)
                               );
     }
     public function testToArray():void
     {
-      const collection:ICollection = this.createCollection();
-      const collectionA:ICollection = this.createCollection();
-      const collectionB:ICollection = this.createCollection();
-      collectionA.add( 1);
-      collectionA.add( 2);
-      collectionA.add( 3);
-      collectionB.add( 'a');
-      collectionB.add( 'b');
-      collectionB.add( 'c');
-      collection.add( collectionA);
-      collection.add( collectionB);
+      const set:ISet = this.createSet();
+      const setA:ISet = this.createSet();
+      const setB:ISet = this.createSet();
+      setA.add( 1);
+      setA.add( 2);
+      setA.add( 3);
+      setB.add( 'a');
+      setB.add( 'b');
+      setB.add( 'c');
+      set.add( setA);
+      set.add( setB);
 
-      this.getTester().isEqual( 'collectionA.toArray()'
-                              , ''+collectionA.toArray()
+      this.getTester().isEqual( 'setA.toArray()'
+                              , ''+setA.toArray()
                               , '1,2,3'
                               );
-      this.getTester().isEqual( 'collectionB.toArray()'
-                              , ''+collectionB.toArray()
+      this.getTester().isEqual( 'setB.toArray()'
+                              , ''+setB.toArray()
                               , 'a,b,c'
                               );
-      var ar:Array = collection.toArray();
-      this.getTester().isTrue( 'ar[ 0] == collectionA'
-                              , ( ar[ 0] == collectionA)
+      var ar:Array = set.toArray();
+      this.getTester().isTrue( 'ar[ 0] == setA'
+                              , ( ar[ 0] == setA)
                               );
-      this.getTester().isTrue( 'ar[ 1] == collectionB'
-                              , ( ar[ 1] == collectionB)
+      this.getTester().isTrue( 'ar[ 1] == setB'
+                              , ( ar[ 1] == setB)
                               );
     }
     public function testIterator():void
     {
-      const collection:ICollection = this.createCollection();
-      collection.add( 1);
-      collection.add( 2);
-      collection.add( 3);
-      const iterator:IIterator = collection.iterator();
+      const set:ISet = this.createSet();
+      set.add( 1);
+      set.add( 2);
+      set.add( 2);
+      set.add( 3);
+      const iterator:IIterator = set.iterator();
       this.getTester().isTrue( 'iterator.hasNext()'
                               , iterator.hasNext()
                               );

@@ -34,6 +34,11 @@ package test.alx.common.util
       this.getTester().isEqual( 'list.get( 1)'
                               , list.get( 1)
                               , 3
+                              );      
+      list.removeAt( 0);
+      this.getTester().isEqual( 'list.get( 0)'
+                              , list.get( 0)
+                              , 3
                               );
     }
     public override function testSet():void
