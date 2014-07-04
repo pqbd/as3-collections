@@ -2,6 +2,7 @@ package test.alx.common.util
 {
   import alx.common.test.CUnitTest;
   import alx.common.util.ISet;
+  import alx.common.util.ICollection;
   import alx.common.util.IIterator;
   import alx.common.util.CAbstractSet;
 
@@ -27,12 +28,17 @@ package test.alx.common.util
                       , this.testIterator
                       , this.testValueOf
                       , this.testToString
+                      , this.testSetIsCollection
                       );
     }
 
     public function createSet():ISet
     {
       throw Error( 'createSet must be implemented');
+    }
+    public function createCollection():ICollection
+    {
+      return this.createSet();
     }
 
     public function testSetCreation():void
@@ -365,6 +371,10 @@ package test.alx.common.util
       this.getTester().isFalse( 'iterator.hasNext()'
                               , iterator.hasNext()
                               );
+    }
+    public function testSetIsCollection():void
+    {
+      const set:ICollection = this.createCollection();
     }
   }
 }

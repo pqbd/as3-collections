@@ -37,7 +37,8 @@ package alx.common.util
     {
       var valueToReturn:Object = null;
       var nIndex:int = this.m_keyList.indexOf( key);
-      valueToReturn = this.m_entryList.get( nIndex).getValue();
+      if ( nIndex > -1)
+        valueToReturn = this.m_entryList.get( nIndex).getValue();
       return valueToReturn;
     }
     public override function entrySet():ISet
