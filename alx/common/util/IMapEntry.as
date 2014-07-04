@@ -5,7 +5,7 @@ package alx.common.util
    * @author Alexander Volkov
    * @version 1.0
    */
-  public interface IMapMap
+  public interface IMapEntry
   {
     /** Gets key.
      * @return Object

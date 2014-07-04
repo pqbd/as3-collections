@@ -50,12 +50,13 @@ package alx.common.util
     public function containsValue( value:Object):Boolean
     {
       var bNext = true;
-      var iterator:IIterator = this.entrySet.iterator();
+      var iterator:IIterator = this.entrySet().iterator();
+      var entry:IMapEntry;
       if ( value == null)
       {
         while ( iterator.hasNext() && bNext)
         {
-          var entry:IEntry = iterator.next();
+          entry = iterator.next() as IMapEntry;
           if ( entry.getValue() == null)
             bNext = false;
         }
@@ -64,7 +65,7 @@ package alx.common.util
       {
         while ( iterator.hasNext() && bNext)
         {
-          var entry:IEntry = iterator.next();
+          entry = iterator.next() as IMapEntry;
           if ( value.valueOf() == entry.getValue().valueOf())
             bNext = false;
         }
@@ -76,11 +77,12 @@ package alx.common.util
       var bNext = true;
       var iterator:IIterator = this.entrySet().iterator();
       var valueToReturn:Object = null;
+      var entry:IMapEntry;
       if ( key == null)
       {
         while ( iterator.hasNext() && bNext)
         {
-          var entry:IEntry = iterator.next();
+          entry = iterator.next() as IMapEntry;
           if ( entry.getKey() == null)
           {
             bNext = false;
@@ -92,8 +94,8 @@ package alx.common.util
       {
         while ( iterator.hasNext() && bNext)
         {
-          var entry:IEntry = iterator.next();
-          if ( value.valueOf() == entry.getKey().valueOf())
+          entry = iterator.next() as IMapEntry;
+          if ( key.valueOf() == entry.getKey().valueOf())
           {
             bNext = false;
             valueToReturn = entry.getValue();
@@ -110,12 +112,13 @@ package alx.common.util
     {
       var bNext = true;
       var iterator:IIterator = this.entrySet().iterator();
-      var entryToRemove:IEntry = null;
+      var entryToRemove:IMapEntry = null;
+      var entry:IMapEntry;
       if ( key == null)
       {
         while ( iterator.hasNext() && bNext)
         {
-          var entry:IEntry = iterator.next();
+          entry = iterator.next() as IMapEntry;
           if ( entry.getKey() == null)
           {
             bNext = false;
@@ -127,8 +130,8 @@ package alx.common.util
       {
         while ( iterator.hasNext() && bNext)
         {
-          var entry:IEntry = iterator.next();
-          if ( value.valueOf() == entry.getKey().valueOf())
+          entry = iterator.next() as IMapEntry;
+          if ( key.valueOf() == entry.getKey().valueOf())
           {
             bNext = false;
             entryToRemove = entry;
@@ -148,7 +151,7 @@ package alx.common.util
       var iterator:IIterator = map.entrySet().iterator();
       while ( iterator.hasNext())
       {
-        var entry:IEntry = iterator.next();
+        var entry:IMapEntry = iterator.next() as IMapEntry;
         this.put( entry.getKey(), entry.getValue());
       }
     }
@@ -178,7 +181,7 @@ package alx.common.util
       var strResult:String = '{';
       if ( !this.isEmpty())
       {
-        var iterator:IIterator = map.entrySet().iterator();
+        var iterator:IIterator = this.entrySet().iterator();
         while ( iterator.hasNext())
         {
           strResult += iterator.next();
@@ -192,11 +195,11 @@ package alx.common.util
 
     protected function createSimpleEntry( key:Object, value:Object):IMapEntry
     {
-      return new CSimpleMapEntry();
+      return new CSimpleMapEntry( key, value);
     }
     protected function createSimpleImmutableEntry( key:Object, value:Object):IMapEntry
     {
-      return new CSimpleImmutableMapEntry();
+      return new CSimpleImmutableMapEntry( key, value);
     }
   }
 }
@@ -236,10 +239,13 @@ implements IIterator
 {
   private var m_iterator:IIterator;
 
-  public function CValuesCollection( iterator:IIterator):void
+  public function CValuesCollectionIterator( iterator:IIterator):void
   {
-    super();
     this.m_iterator = iterator;
+  }
+  protected function getIterator():IIterator
+  {
+    return this.m_iterator;
   }
   public function hasNext():Boolean
   {
@@ -290,12 +296,12 @@ extends CValuesCollectionIterator
   }
   public override function next():Object
   {
-    return this.m_iterator.next().getKey();
+    return this.getIterator().next().getKey();
   }
 }
 
 class CSimpleImmutableMapEntry
-implements IMapMap
+implements IMapEntry
 {
   private var m_key:Object;
   private var m_value:Object;
